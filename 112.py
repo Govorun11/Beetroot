@@ -1,0 +1,2 @@
+s = 'strafsfsoka'
+print(s)
