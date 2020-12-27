@@ -24,6 +24,5 @@ while i <= 19:
 print(f'First list: {first_list}!')
 print(f'Second list: {second_list}!')
 firstANDsecond = first_list + second_list
-print(f'First and second lists: {firstANDsecond}!')
 common_set = set(firstANDsecond)
 print(f'Common list: {common_set}')

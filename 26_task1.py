@@ -14,4 +14,5 @@ while i <= 10:
     my_list.append(x)
     i+=1
 else:
-    print(my_list)
+    print(f'Our list is {my_list}!')
+    print(f'Largest number of  list is {max(my_list)}!')
