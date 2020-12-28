@@ -7,9 +7,9 @@ but not a multiple of 5, and store them in a separate list. Finally, print the l
 Constraint: use only while loop for iteration
 '''
 
-s = []
+divisible_list = []
 for i in range(0, 100):
     if i % 7 == 0 and i % 5 != 0:
-        s.append(i)
+        divisible_list.append(i)
         i += 1
-print(s)
+print(divisible_list)
