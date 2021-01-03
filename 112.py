@@ -1,2 +1,0 @@
-s = 'strafsfsoka'
-print(s)
