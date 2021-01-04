@@ -17,5 +17,5 @@ def make_country(name, capital): #add a key 'name', key 'capital' for dict count
     return country
 
 
-print(make_country(country_name.lower().title(), country_capital.lower().title()))
+print(make_country(country_name, country_capital))
 print(country.values())
