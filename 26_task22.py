@@ -12,16 +12,14 @@ import random
 
 first_list = []
 second_list = []
-i = 0
-while len(first_list) < 10 and len(second_list) < 10:
-        fl = random.randint(0, 10)
-        sl = random.randint(0,10)
-        first_list.append(fl)
-        second_list.append(sl)
-i += 1
+
+while len(first_list) < 10:
+    first_list.append(random.randint(0, 10))
+    second_list.append(random.randint(0, 10))
+
 print(f'First list: {first_list}!')
 print(f'Second list: {second_list}!')
 first_and_second = first_list + second_list
 print(f'First and second lists: {first_and_second}!')
 common_set = set(first_and_second)
-print(f'Common list: {common_set}')
+print(f'Common list: {list(common_set)}')
