@@ -1,4 +1,6 @@
 '''
+
+''''''
 TASK 1
 
 Make a program that has some sentence (a string) on input
