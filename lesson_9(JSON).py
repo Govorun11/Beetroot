@@ -26,3 +26,63 @@ print(hello_file_world)
 
 
 
+'''
+Task 2
+
+Extend Phonebook application
+Functionality of Phonebook application:
+
+    Add new entries
+    Search by first name
+    Search by last name
+    Search by full name
+    Search by telephone number
+    Search by city or state
+    Delete a record for a given telephone number
+    Update a record for a given telephone number
+    An option to exit the program
+
+The first argument to the application should be the name of the phonebook.
+Application should load JSON data, if it is present in the folder with application, else raise an error.
+After the user exits, all data should be saved to loaded JSON.
+'''
+#рано закомитил, не работает как нужно
+
+import json
+
+new_contact = {}
+print('Delete contact - 1, Update contact - 2, Add contact - 3')
+user_operation = input('What do you want to do? ')
+firstname = input('Insert your first name:').lower().title()
+lastname = input('Insert your last name: ').lower().title()
+fullname = str(firstname + ' ' + lastname)
+phone_number = input('Insert phone number:')
+city = input('Insert your city: ').lower().title()
+
+
+def add_contact():
+    new_contact[fullname] = {'firstname': firstname, 'lastname': lastname, 'phone': phone_number, 'city': city}
+    return new_contact
+
+
+def del_contact():
+    del new_contact[fullname]
+    return new_contact
+
+
+def update_contact():
+    del_contact()
+    new_contact[fullname] = {'firstname': firstname, 'lastname': lastname, 'phone': phone_number, 'city': city}
+    return new_contact
+
+
+if user_operation == '1':
+        del_contact()
+elif user_operation == '2':
+    update_contact()
+elif user_operation == '3':
+    add_contact()
+else:
+    print('Choose correct operation!...')
+with open('phonebook.json', 'a') as file:
+    json.dump(new_contact, file, indent=2)
