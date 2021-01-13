@@ -5,12 +5,15 @@ Write a function called oops that explicitly raises an IndexError exception when
 Then write another function that calls oops inside a try/except statement to catch the error.
 What happens if you change oops to raise KeyError instead of IndexError?
 '''
-#мне кажется, я не совсем понял все задание))
+
+# Мне кажется, я не совсем понял все задание))
+
 
 def oops():
     my_list = ['1', '2', 'error']
     my_index = my_list[3]
     print(my_index)
+
 
 try:
     oops()
