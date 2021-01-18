@@ -46,43 +46,47 @@ The first argument to the application should be the name of the phonebook.
 Application should load JSON data, if it is present in the folder with application, else raise an error.
 After the user exits, all data should be saved to loaded JSON.
 '''
-#рано закомитил, не работает как нужно
 
+# ne cdelal poisk po name/city/number, ne ycpevayu, budu delat' next zadaniya=)
+# dobavlenie i ydaleniye rabotayut otlichno!!!
 import json
-
-new_contact = {}
-print('Delete contact - 1, Update contact - 2, Add contact - 3')
-user_operation = input('What do you want to do? ')
-firstname = input('Insert your first name:').lower().title()
-lastname = input('Insert your last name: ').lower().title()
-fullname = str(firstname + ' ' + lastname)
-phone_number = input('Insert phone number:')
-city = input('Insert your city: ').lower().title()
 
 
 def add_contact():
-    new_contact[fullname] = {'firstname': firstname, 'lastname': lastname, 'phone': phone_number, 'city': city}
-    return new_contact
+    phonebook.append(contact)
+    return phonebook
 
 
 def del_contact():
-    del new_contact[fullname]
-    return new_contact
+    phonebook.remove(contact)
+    return phonebook
 
 
-def update_contact():
-    del_contact()
-    new_contact[fullname] = {'firstname': firstname, 'lastname': lastname, 'phone': phone_number, 'city': city}
-    return new_contact
+user_operation = input('Choose operation:\n'
+                       '1 - for Add contact;\n'
+                       '2 - for delete contact;\n')
+first_name = input('Insert first name: ').lower()
+last_name = input('Insert last name: ').lower().title()
+phone_number = input('Insert phone number: ')
+city = input('Insert city: ').lower().title()
+full_name = first_name + last_name
+contact = {full_name: {'first_name': first_name, 'lastname': last_name, 'phone': phone_number, 'city': city}}
+phonebook = []
+if __name__ == '__main__':
+    if user_operation == '1':
+        with open('phonebook.json', 'r') as file:
+            phonebook = json.load(file)
+        add_contact()
+        with open('phonebook.json', 'w') as file:
+            json.dump(phonebook, file, indent=2)
 
-
-if user_operation == '1':
+    elif user_operation == '2':
+        with open('phonebook.json', 'r') as file:
+            phonebook = json.load(file)
         del_contact()
-elif user_operation == '2':
-    update_contact()
-elif user_operation == '3':
-    add_contact()
-else:
-    print('Choose correct operation!...')
-with open('phonebook.json', 'a') as file:
-    json.dump(new_contact, file, indent=2)
+        with open('phonebook.json', 'w') as file:
+            json.dump(phonebook, file, indent=2)
+    elif user_operation == '3':
+        del_contact()
+    else:
+        print('Choose correct operation!...')
