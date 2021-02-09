@@ -96,6 +96,7 @@ assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]
 '''
 
 
+
 class Calculator:
     list_for_square = [7, 11, 5, 4]
     list_for_remove = [26, -11, -8, 13, -90]
