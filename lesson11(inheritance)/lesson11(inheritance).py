@@ -41,7 +41,7 @@ class Student(Person):
 
 
 class Teacher(Person):
-    def __init__(self, gender, name, age,  classroom, salary):
+    def __init__(self, gender, name, age, classroom, salary):
         super().__init__(gender, name, age)
         self.salary = salary
         self.classroom = classroom
@@ -96,7 +96,6 @@ assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]
 '''
 
 
-
 class Calculator:
     list_for_square = [7, 11, 5, 4]
     list_for_remove = [26, -11, -8, 13, -90]
@@ -127,7 +126,6 @@ if __name__ == '__main__':
     print(math.remove_pozitives())
     print(math.filter_leaps())
 
-
 '''
 Магазин продуктов
 Напишите класс Product с тремя атрибутами:
@@ -152,6 +150,9 @@ get_product_info (product_name) - возвращает кортеж с назв�
 import json
 
 
+# работает не все...
+
+
 class Product:
     def __init__(self, group, name, price):
         self.group = group
@@ -163,6 +164,9 @@ class Product:
 
     def __str__(self):
         return f'{self.group}, {self.name}, {self.price}'
+
+    def __repr__(self):
+        return self.__str__()
 
 
 class ProductStore:
@@ -222,7 +226,3 @@ if __name__ == '__main__':
     s.sell_product(str(product2), 10)
     s.sell_product(str(product1), 12)
     print(s.get_all_products())
-
-
-
-
