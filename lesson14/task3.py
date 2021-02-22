@@ -15,10 +15,11 @@
 #     return f"{name} drinks pepsi in his brand new BMW!"
 # assert create_slogan('johndoe05@gmail.com') is False
 # assert create_slogan('S@SH05') == 'S@SH05 drinks pepsi in his brand new BMW!'
-
+from functools import wraps
 
 def arg_rules(max_lenght: int, type_: str, contains: list):
     def inner(func):
+        @wraps(func)
         def wrapper(*args, **kwargs):
             checking = func(*args, **kwargs)
             for el in contains:
