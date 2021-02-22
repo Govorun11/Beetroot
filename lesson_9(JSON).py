@@ -20,7 +20,7 @@ with open('myfile.txt', 'w') as hello: # записываем значение �
 print(hello_file_world)
 
 
-with open('myfile.txt') as hello: # считываем файл myfile.txt
+with open('myfile.txt') as hello:# считываем файл myfile.txt
     hello_file_world = hello.read()
 print(hello_file_world)
 
