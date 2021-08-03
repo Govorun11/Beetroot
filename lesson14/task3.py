@@ -17,6 +17,7 @@
 # assert create_slogan('S@SH05') == 'S@SH05 drinks pepsi in his brand new BMW!'
 from functools import wraps
 
+
 def arg_rules(max_lenght: int, type_: str, contains: list):
     def inner(func):
         @wraps(func)

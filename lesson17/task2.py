@@ -14,4 +14,3 @@ def del_contact(name, number):
     contact = name, number
     phonebook.remove(contact)
     return phonebook
-
